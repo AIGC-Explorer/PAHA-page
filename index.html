@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PAHA: Parts-Aware Audio-Driven Human Animation with Diffusion Model</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">PAHA: Parts-Aware Audio-Driven Human Animation with Diffusion Model</h1>
+          <!-- <div class="is-size-3 publication-authors">
+            UnderReview
+          </div> -->
+          <!-- <div style="color: red; font-size: 24px; font-weight: bold;">CVPR 2025</div> 添加的红色字体行 -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=xiK4nFUAAAAJ&hl=zh-CN">Yabiao Wang</a><sup>1,2*</sup>,</span>
+            <span class="author-block">
+              <a href="">Shengzhe Zhou</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="">Jiafu Wu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Teng Hu</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=2hA4X9wAAAAJ&view_op=list_works">Jiangning Zhang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Yong Liu</a><sup>1</sup>,
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Zhejiang University<sup>1</sup>, Tencent Youtu Lab<sup>2</sup>, Shanghai Jiao Tong University<sup>3</sup></span>
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">* Equal contributions</span>
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Audio-driven human animation technology is widely used in human-computer interaction, and the emergence of diffusion models has further advanced its development. Currently, most methods rely on multi-stage generation and intermediate representations, resulting in long inference time and issues with generation quality in specific foreground regions and audio-motion consistency. These shortcomings are primarily due to the lack of localized fine-grained supervised learning or guidance. To address above challenges, we propose PAHA, an end-to-end audio-driven upper-body human animation framework with diffusion model. We introduce two key methods: Parts-Aware Re-weighting (PAR) and Parts Consistency Enhancement (PCE). PAR dynamically adjusts regional training loss weights based on pose confidence scores, effectively improving visual quality. PCE constructs and trains diffusion-based regional audio-visual classifiers to improve the consistency of motion and co-speech audio. Afterwards, we design two novel inference guidance methods for the foregoing classifiers, Sequential Guidance (SG) and Differential Guidance (DG), to balance efficiency and quality respectively. Additionally, we build CNAS, the first public Chinese News Anchor Speech dataset, to advance research and validation in this field. Extensive experimental results and user studies demonstrate that PAHA significantly outperforms existing methods in audio-motion alignment and video-related evaluations. The codes and CNAS dataset will be released upon acceptance.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered">
+              <img src="./static/images/PAHA.png"
+                   class="interpolation-image"
+                   alt="Interpolate start reference image."/>
+      </div>
+      <div class="columns is-centered">  
+          <img src="./static/images/PAR_PCE.png" class="interpolation-image" alt="Interpolate start reference image."/>  
+      </div>  
+      <!--/ Abstract. -->
+  
+    </div>
+  </section>
+
+  
+<section class="section">
+    <div class="container is-max-desktop">
+  
+  <!-- Quantitative Results. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Quantitative Results</h2>
+  
+          <!-- Interpolating. -->
+          <h3 class="title is-4">PATS Dataset and CNAS Dataset</h3>
+          <div class="content has-text-justified">
+            <p>
+              Quantitative evaluation on the PATS and CNAS test set.
+            </p>
+          </div>
+          <div class="column is-center has-text-centered">
+              <img src="./static/images/results.png"
+                   class="interpolation-image"
+                   alt="Interpolate start reference image."/>
+          </div>
+
+        </div>
+      </div>
+  
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <center><h2 class="title is-3">Comparisons</h2></center><br>
+      <div class="content has-text-justified">
+        <p>
+          <b>We compare our PAHA against ANGIE, S2G, MM-Diff for co-speech human video generation. From left to right: ANGIE, PAHA, S2G, MM-Diff. The results show that our method generate high-quality videos, especially in the face and hand regions, significantly enhancing the consistency between motion and speech by using a carefully trained PCE classifier for guidance during inference.</p></b> <br>
+        </p>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="100%">
+            <source src="./static/video/3617.mp4#t=0.01"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="100%">
+            <source src="./static/video/oliver#103868.mp4#t=0.01"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="100%">
+            <source src="./static/video/seth#99874.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+      <center><h2 class="title is-3">More Generation Results</h2></center><br>
+      <div class="content has-text-justified">
+      </div>
+      <div class="columns is-multiline">
+          <div class="column is-half">
+              <div class="content has-text-centered">
+                  <div class="video-container">
+                      <!-- <p>two persons perform a synchronized dancing move together.</p> -->
+                      <video id="replay-video"
+                             controls
+                             muted
+                             preload
+                             playsinline
+                             width="100%">
+                          <source src="./static/video/2152.mp4"
+                                  type="video/mp4">
+                      </video>
+                  </div>
+              </div>
+          </div>
+          <div class="column is-half">
+              <div class="content has-text-centered">
+                  <div class="video-container">
+                      <!-- <p>one person lifts the magazine in front of themselves with both hands, while the other person kicks up their right leg to assault the magazine.</p> -->
+                      <video id="replay-video"
+                             controls
+                             muted
+                             preload
+                             playsinline
+                             width="100%">
+                          <source src="./static/video/3384.mp4"
+                                  type="video/mp4">
+                      </video>
+                  </div>
+              </div>
+          </div>
+          <div class="column is-half">
+              <div class="content has-text-centered">
+                  <div class="video-container">
+                      <!-- <p>one person embraces the other person's back with both arms, while the other person reciprocates the gesture.</p> -->
+                      <video id="replay-video"
+                             controls
+                             muted
+                             preload
+                             playsinline
+                             width="100%">
+                          <source src="./static/video/chem#10712.mp4"
+                                  type="video/mp4">
+                      </video>
+                  </div>
+              </div>
+          </div>
+          <div class="column is-half">
+              <div class="content has-text-centered">
+                  <div class="video-container">
+                      <!-- <p>two individuals are sparring with each other.</p> -->
+                      <video id="replay-video"
+                             controls
+                             muted
+                             preload
+                             playsinline
+                             width="100%">
+                          <source src="./static/video/oliver#103845.mp4"
+                                  type="video/mp4">
+                      </video>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{wang2024paha,
+      title={PAHA: Parts-Aware Audio-Driven Human Animation with Diffusion Model}, 
+      author={Yabiao Wang and Shengzhe Zhou and Jiafu Wu and Teng Hu and Jiangning Zhang and Yong Liu},
+      year={2025},
+      eprint={},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+<script>
+      var videoContainer = document.getElementById('video-container');
+      var video = document.getElementById('video');
+
+      var videoOffset = videoContainer.offsetTop;
+
+      window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY || window.pageYOffset;
+
+        if (scrollPosition >= videoOffset) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    </script>
+
+</body>
+</html>
